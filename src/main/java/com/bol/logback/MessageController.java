@@ -14,7 +14,7 @@ import java.util.Map;
 @RequestMapping("/message")
 public class MessageController {
 
-    private static final Logger parentLogger = LoggerFactory.getLogger(MessageController.class);
+    private static final Logger logger = LoggerFactory.getLogger(MessageController.class);
 
     @GetMapping("")
     public String getMessage() {
@@ -26,9 +26,21 @@ public class MessageController {
         user.put("postalCode", "3500");
         user.put("deliveryAddress", "so far");
         user.put("comment", "should be shown in the log");
+        user.put("email", "pooyamirzapour@gmail.com");
         JSONObject userDetails = new JSONObject(user);
 
-        parentLogger.info("User Info: {}", userDetails);
+        logger.info("User Info: {}", userDetails);
+
+        //myTest();
+
         return "Hi";
+    }
+
+    public static void myTest() {
+        logger.info("this is my info message");
+        logger.info("This is debug message");
+        logger.info(
+                "Passed to server::0084USER:17603,IP:0:0:0:0:0:0:0:1,3425,Credit Card 1:1000002367844224,3425,Credit Card2:1000002367844224 , CVV:234,SSN:123456789");
+
     }
 }
