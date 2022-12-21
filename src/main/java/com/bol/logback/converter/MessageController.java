@@ -13,7 +13,7 @@ import java.util.Map;
 @RequestMapping("/message")
 public class MessageController {
 
-    org.apache.logging.log4j.Logger logger2 = LogManager.getLogger();
+    org.apache.logging.log4j.Logger logger = LogManager.getLogger();
 
     @GetMapping("")
     public String getMessage() {
@@ -29,7 +29,7 @@ public class MessageController {
         user.put("email", "pooyamirzapour@gmail.com");
         JSONObject userDetails = new JSONObject(user);
 
-        logger2.info("User Info: {}", userDetails);
+        logger.info("User Info: {}", userDetails);
 
 
         return "Hi";
